@@ -11,7 +11,7 @@ export default function LoginScreen() {
 
 
     <View style={styles.container}>
-      {/* Write the code here */} 
+      {/*Write the code here*/}
     </View>
 
 

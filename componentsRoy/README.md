@@ -13,10 +13,18 @@ Open `componentsRoy/LoginScreen.tsx` and:
 ### 2. Implement handleLogin: (JONATHAN SHOULD'VE FILLED ./config/firebaseConfig.ts BY NOW)
    - Import Firebase functions (already set up)
    - Save data to Firestore `users` collection
-   - Show success or error message
+         - this function saves the object to the database:
+               addDoc(collection(db, 'users'), { phoneNumber, username })
+   - Debug: Show success or error message
 
 
 ### 3. Test
 1. Run the app: `npm start` or `npx expo start`
 2. Fill in the form and press submit
-3. Check Firebase Console with Jonathan - your data should appear!
+3. Check Firebase Console with Jonathan
+
+
+### 4. Commit and Push it to the Repo
+1. git add .
+2. git commit -m 'implemented basic LoginScreen'
+3. fit push origin main

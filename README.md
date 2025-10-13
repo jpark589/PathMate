@@ -1,2 +1,1 @@
-# PathMate
-we are making an app
+We are making an app

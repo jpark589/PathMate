@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput} from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 
 
 export default function LoginScreen() {
@@ -16,8 +16,12 @@ export default function LoginScreen() {
       style={styles.input}
       placeholder="Phone Number"
       />
-    </View>
-  );
+
+    <TouchableOpacity style={styles.button}>
+      <Text style={styles.buttonText}>Create Account</Text>
+    </TouchableOpacity>
+  </View>
+);
 
 }
 
@@ -38,5 +42,17 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     margin: 10,
     padding: 10,
+    borderRadius: 8,
+  },
+  button: {
+    backgroundColor: '#56382d',
+    padding: 10,
+    borderRadius: 5,
+    margin: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });

@@ -1,20 +1,28 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert} from 'react-native';
 import { useState } from 'react';
+import { API_URL } from './config';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const createAccount = async () => {
-   await fetch('http://192.168.1.5:3000/create-account', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, phoneNumber }),
-      });
-    };
+    await fetch(`${API_URL}/create-account`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, phoneNumber }),
+    });
+  };
 
   const checkAccount = async () => {
-    await fetch(`http://192.168.1.5:3000/check-account?username=${username}`);
+    const response = await fetch(`${API_URL}/check-account?username=${username}&phoneNumber=${phoneNumber}`);
+    const data = await response.json();
+    
+    if (data.exists) {
+      Alert.alert('Account exists');
+    } else {
+      Alert.alert('Account does not exist');
+    }
   };
 
 
